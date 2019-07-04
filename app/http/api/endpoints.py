@@ -4,11 +4,13 @@ from app.shop.services.store_service import StoreService as Store
 from app.shop.schemas.store_schema import StoreSchema
 from app.shop.schemas.member_schema import MemberSchema
 from flask_cors import CORS
+from .middlewares import login_required
 
 app = Flask(__name__)
 CORS(app)
 
 @app.route('/stores', methods=['POST'])
+@login_required
 def create_store():
     store_data = StoreSchema().load(json.loads(request.data))
     
@@ -19,6 +21,7 @@ def create_store():
     return json_response(store)
 
 @app.route('/stores', methods=['GET'])
+@login_required
 def find_stores():
     return json_response(Store().find_all_stores())
     
