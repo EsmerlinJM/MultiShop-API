@@ -1,0 +1,6 @@
+{
+    "python.pythonPath": "/Users/esmerlinmieses/.local/share/virtualenvs/MultiShop-API-DStiCiwk/bin/python",
+    "python.linting.pylintEnabled": false,
+    "python.linting.enabled": false,
+    "python.linting.mypyEnabled": true
+}
