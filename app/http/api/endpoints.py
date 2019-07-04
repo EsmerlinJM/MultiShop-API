@@ -9,7 +9,6 @@ app = Flask(__name__)
 CORS(app)
 
 @app.route('/stores', methods=['POST'])
-
 def create_store():
     store_data = StoreSchema().load(json.loads(request.data))
     
@@ -20,7 +19,6 @@ def create_store():
     return json_response(store)
 
 @app.route('/stores', methods=['GET'])
-
 def find_stores():
     return json_response(Store().find_all_stores())
     
