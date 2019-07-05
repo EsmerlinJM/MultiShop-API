@@ -14,6 +14,7 @@ marshmallow = "*"
 pymongo = "*"
 pyjwt = "*"
 flask-cors = "*"
+bcrypt = "*"
 
 [requires]
 python_version = "3.7"

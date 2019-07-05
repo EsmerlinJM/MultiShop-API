@@ -49,6 +49,18 @@ def show(member_id):
         return json_response(member)
     else:
         return json_response({'error': 'Member not found'}, 404)
+
+@app.route('/member/auth', methods=['POST'])
+def auth():
+    username = request.json.get('username')
+    password = request.json.get('password')
+
+    auth_member = Member().auth_member(username, password)
+    
+    if auth_member:
+        return json_response({'authenticated': auth_member})
+    else:
+        return json_response({'error': member_data.errors}, 422)
     
 
 @app.route('/members/<uuid:member_id>', methods=['PUT'])

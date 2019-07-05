@@ -30,3 +30,8 @@ class MemberService(object):
         records_affected = self.repo_client.delete({'member_id': member_id})
         return records_affected > 0
     
+    def auth_member(self, username, password):
+        member = self.repo_client.find({'username': username})
+        if member:
+        return self.dump_member.dump(member)
+    
